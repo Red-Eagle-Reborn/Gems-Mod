@@ -105,6 +105,17 @@ RE = {
 	errMsg: function() {
 		clientMessage("Not Enough Gems To Buy");
 	},
+	buyPack: function(pack) {
+		if(pack == "starter pack") {
+			if(gems >= 100) {
+				//Add add add
+				msg("You have succesfully buy a Starter Pack");
+			} else {
+				errMsg();
+			}
+		}
+		// add more
+	},
 	dismissGUI: function() {
 		var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
     	ctx.runOnUiThread(new java.lang.Runnable({ run: function(){
