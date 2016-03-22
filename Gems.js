@@ -145,7 +145,7 @@ RE = {
 	            exitUI = null;
 	        }
    	 	}}));
-	}
+	},
 	msg: function(msg) {
 		clientMessage(msg);
 	}
