@@ -18,7 +18,7 @@ function newLevel() {
             layout.setOrientation(1);
 
             var menuBtn = new android.widget.TextView(ctx);
-            menuBtn.setText(gems);
+            menuBtn.setText(""+gems);
             menuBtn.setOnClickListener(new android.view.View.OnClickListener({
                 onClick: function(viewarg){
                     mainMenu();
@@ -26,6 +26,9 @@ function newLevel() {
             }));
             menuBtn.setGravity(android.view.Gravity.CENTER);
             layout.addView(menuBtn);
+            GUI = new android.widget.PopupWindow(layout,android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT,android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+            GUI.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+            GUI.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT | android.view.Gravity.CENTER,10,20);
         }catch(err){
             print("An error occured: " + err);
         }
