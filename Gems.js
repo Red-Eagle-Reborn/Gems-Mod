@@ -57,11 +57,10 @@ function mainMenu(){
             }));
 
             var button1 = new android.widget.Button(ctx);
-            button1.setText("Starter2 Pack");
+            button1.setText("CLOSE");
             button1.setOnClickListener(new android.view.View.OnClickListener({
                 onClick: function(viewarg){
-                    //starterPackGUI();
-                    clientMessage("nothing");
+                    RE.dismissGUI();
                 }
             }));
             menuLayout.addView(button);
@@ -74,32 +73,6 @@ function mainMenu(){
             menu.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.TOP, 0, 0);
         }catch(error){
             print("An error occured: " + error);
-        }
-    }}));
-}
-
-function exit(){
-    var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
-    ctx.runOnUiThread(new java.lang.Runnable({ run: function(){
-        try{
-            var xLayout = new android.widget.LinearLayout(ctx);
-
-            var xButton = new android.widget.Button(ctx);
-            xButton.setText("x");
-            xButton.setTextColor(android.graphics.Color.WHITE);
-            xButton.setOnClickListener(new android.view.View.OnClickListener({
-                onClick: function(viewarg){
-                    exitUI.dismiss();
-                    menu.dismiss();
-                }
-            }));
-            xLayout.addView(xButton);
-
-            exitUI = new android.widget.PopupWindow(xLayout, dip2px(40), dip2px(40));
-            exitUI.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
-            exitUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.TOP, 0, 0);
-        }catch(exception){
-            print(exception);
         }
     }}));
 }
