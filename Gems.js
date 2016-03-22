@@ -60,7 +60,13 @@ function mainMenu(){
             button1.setText("CLOSE");
             button1.setOnClickListener(new android.view.View.OnClickListener({
                 onClick: function(viewarg){
-                    RE.dismissGUI();
+                    var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
+			    	ctx.runOnUiThread(new java.lang.Runnable({ run: function(){
+				        if(menu != null){
+				            menu.dismiss();
+				            menu = null;
+				        }
+			   	 	}}));
                 }
             }));
             menuLayout.addView(button);
